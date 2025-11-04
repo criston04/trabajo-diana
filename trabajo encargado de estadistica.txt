@@ -1,0 +1,490 @@
+UNIVERSIDAD NACIONAL AGRARIA DE LA SELVA
+FACULTAD DE RECURSOS NATURALES RENOVABLES
+
+
+TEMA: “LARGO DEL TALLO DEL CACAO”
+
+
+                               CURSO : ESTADISTICA GENERAL
+
+                               DOCENTE : BERMUDEZ PINO WILMER JULIO
+ 
+                        ESTUDIANTE : CORAL VALDIVIA DIANA MARIA
+
+       ESCUELA PROFESIONAL: INGENIERIA EN CONSERVACIÓN DE SUELOS Y AGUA
+
+                               SEMESTRE:  2025-II
+
+
+
+
+
+TINGO – MARIA 2025
+I. INTRODUCCIÓN
+El fósforo es uno de los macronutrientes esenciales para el crecimiento y desarrollo de las plantas, ya que participa activamente en procesos fisiológicos como la fotosíntesis, la formación de raíces, la floración y la maduración de los frutos. En la carrera de Suelos y Agua, su estudio es de gran importancia, pues permite comprender cómo la disponibilidad y manejo de nutrientes influye directamente en la productividad de los cultivos y la salud del suelo.
+En este experimento se evaluó el efecto del fósforo sobre el crecimiento vegetal, tomando como principal indicador el largo del tallo (cm) de 22 plantas tratadas. A partir de estas mediciones se buscó analizar la variabilidad del crecimiento y representar gráficamente los resultados para observar la respuesta de las plantas al tratamiento aplicado. Este tipo de análisis permite no solo interpretar la influencia del fósforo en el desarrollo morfológico de las plantas, sino también aplicar los conocimientos adquiridos en la gestión y fertilización sostenible de los suelos agrícolas.
+1.1 objetivo
+Analizar estadísticamente el efecto del fósforo en el crecimiento vegetal mediante la elaboración de una tabla de distribución de frecuencias del largo del tallo de las plantas, con el propósito de interpretar la variabilidad de los datos y representar gráficamente la influencia del nutriente en el desarrollo de las mismas.
+TRABAJO ENCARGADO DE ESTADISTICA CON EL FOSFORO (variable cuantitativa continua)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+II. MARCO TEORICO
+2.1  El fósforo como nutriente esencial
+El fósforo (P) es uno de los macronutrientes primarios esenciales para el desarrollo de las plantas. Participa en procesos fundamentales como la fotosíntesis, la formación y desarrollo de raíces, la síntesis de ácidos nucleicos (ADN y ARN), la transferencia de energía (ATP y ADP) y la maduración de frutos y semillas.
+La deficiencia de fósforo provoca un crecimiento lento, tallos delgados, raíces poco desarrolladas y hojas con tonalidades verde oscuro o púrpuras. En cambio, su adecuada aplicación promueve un crecimiento vigoroso y un mayor desarrollo del tallo y las raíces.
+2.2. Importancia del fósforo en la agricultura
+El estudio del fósforo en la carrera de Suelos y Agua es de gran relevancia, ya que permite comprender la dinámica de los nutrientes en el suelo y su relación con la productividad agrícola. El fósforo es un elemento poco móvil en el suelo, por lo que su disponibilidad depende de factores como el pH, el contenido de materia orgánica y la presencia de microorganismos solubilizadores de fósforo.
+Un manejo adecuado de este nutriente contribuye a la fertilización sostenible, mejorando la eficiencia del uso de fertilizantes y evitando la contaminación de los cuerpos de agua por exceso de nutrientes.
+2.3. Aplicación del análisis estadístico en experimentos agrícolas
+En los estudios agronómicos, el análisis estadístico permite interpretar los resultados experimentales y tomar decisiones basadas en datos. La medición del largo del tallo de las plantas tratadas con fósforo constituye una variable cuantitativa continua, que puede analizarse mediante métodos estadísticos descriptivos.
+Estos métodos ayudan a identificar la variabilidad del crecimiento vegetal y a comparar la respuesta de las plantas frente al tratamiento aplicado.
+2.4. Tabla de distribución de frecuencias
+La tabla de distribución de frecuencias es una herramienta estadística que organiza los datos obtenidos en intervalos, mostrando cuántas veces se repite cada rango de valores.
+A través de esta tabla se pueden calcular diferentes parámetros como:
+* Frecuencia absoluta (fi): número de veces que aparece un valor o intervalo.
+* Frecuencia relativa (hi): proporción que representa cada valor respecto al total.
+* Frecuencia acumulada (Fi y Hi): suma progresiva de las frecuencias absolutas o relativas.
+Esta organización facilita el análisis y la comprensión de los resultados del experimento.
+2.5. Representación gráfica de los datos
+Los datos ordenados en una tabla de frecuencias pueden representarse mediante gráficos como:
+* Histograma: muestra la distribución de los datos en intervalos.
+* Polígono de frecuencia: une los puntos medios de las columnas del histograma.
+* Ojiva: representa la frecuencia acumulada.
+Estas representaciones gráficas permiten observar el comportamiento general del crecimiento de los tallos y detectar patrones o tendencias relacionadas con el efecto del fósforo.
+2.6. Importancia del análisis estadístico en la interpretación de resultados
+El análisis estadístico de las variables biológicas es fundamental para evaluar la eficacia de un tratamiento. En este caso, estudiar la distribución del largo del tallo de las plantas permite determinar la influencia del fósforo sobre su desarrollo.
+Además, el uso de medidas de tendencia central (media, mediana, moda) y de dispersión (rango, varianza, desviación estándar) proporciona una visión más precisa del comportamiento de los datos, permitiendo interpretar si el crecimiento fue homogéneo o variable entre las plantas tratadas.
+
+
+III. RESULTADOS
+
+CODIGO EN R:
+CODIGO MEJORADO CON TODOS LOS DATOS 
+# Cargar librerías necesarias
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(kableExtra)
+
+# ============================================================
+# DATOS ORIGINALES
+# ============================================================
+
+# Ingresar los datos
+datos <- c(12.0, 14.6, 11.9, 9.0, 16.1, 16.8, 17.6, 7.6, 7.8, 16.4, 4.0, 11.5, 11.4, 3.0, 11.4, 8.6, 7.7, 10.5, 14.5, 1.5, 7.0, 14.1, 13.3, 16.3, 12.8, 9.2, 15.5, 17.0, 19.3, 9.0, 13.5, 16.4, 5.0, 12.5, 13.0, 3.5, 12.3, 7.4, 6.9, 12.7, 15.9, 3.8, 12.5, 14.9, 19.0, 18.5, 13.8, 12.5, 16.6, 18.3, 21.8, 10.1, 17.1, 16.7, 6.9, 14.6, 19.1, 4.3, 12.8, 7.7, 7.8, 18.6, 18.1, 6.1, 21.1, 19.2, 19.0, 19.0, 19.0, 13.0, 18.0, 18.7, 21.5, 14.8, 17.5, 17.8, 5.0, 14.3, 19.2, 3.5, 13.5, 7.7, 8.9, 19.0, 18.5, 5.0, 22.25, 20.4)
+
+# Convertir a data frame
+df <- data.frame(
+  Largo_del_tallo_cm = datos
+)
+
+# Ver primeras observaciones
+cat("\n============================================================\n")
+cat("PRIMERAS OBSERVACIONES\n")
+cat("============================================================\n\n")
+print(head(df, 10))
+
+# Resumen básico
+cat("\n============================================================\n")
+cat("RESUMEN BÁSICO DE LOS DATOS\n")
+cat("============================================================\n\n")
+print(summary(df$Largo_del_tallo_cm))
+
+# ============================================================
+# TABLA DE FRECUENCIAS MEJORADA
+# ============================================================
+
+cat("\n============================================================\n")
+cat("TABLA DE FRECUENCIAS POR INTERVALOS\n")
+cat("============================================================\n\n")
+
+# Para variables continuas, crear intervalos
+n <- length(df$Largo_del_tallo_cm)
+
+# Calcular número de intervalos (Regla de Sturges)
+k <- ceiling(1 + 3.322 * log10(n))
+
+cat("Número de datos (n):", n, "\n")
+cat("Número de intervalos (k):", k, "\n\n")
+
+# Crear intervalos
+min_val <- min(df$Largo_del_tallo_cm)
+max_val <- max(df$Largo_del_tallo_cm)
+amplitud <- (max_val - min_val) / k
+
+# Crear límites de intervalos
+limites <- seq(min_val, max_val, length.out = k + 1)
+
+# Crear intervalos con etiquetas personalizadas
+intervalos <- cut(df$Largo_del_tallo_cm, 
+                  breaks = limites, 
+                  include.lowest = TRUE,
+                  right = FALSE)
+
+# Crear tabla de frecuencias completa
+tabla_freq <- table(intervalos)
+freq_abs <- as.vector(tabla_freq)
+freq_rel <- prop.table(tabla_freq)
+freq_porc <- prop.table(tabla_freq) * 100
+freq_acum <- cumsum(freq_abs)
+freq_rel_acum <- cumsum(freq_rel)
+freq_porc_acum <- cumsum(freq_porc)
+
+# Crear data frame con la tabla completa
+tabla_completa <- data.frame(
+  "Intervalo" = names(tabla_freq),
+  "Límite Inferior" = round(limites[1:k], 2),
+  "Límite Superior" = round(limites[2:(k+1)], 2),
+  "Marca de Clase" = round((limites[1:k] + limites[2:(k+1)]) / 2, 2),
+  "Frecuencia Absoluta (fi)" = freq_abs,
+  "Frecuencia Relativa (hi)" = round(as.vector(freq_rel), 4),
+  "Frecuencia Porcentual (%)" = round(as.vector(freq_porc), 2),
+  "Frecuencia Acumulada (Fi)" = freq_acum,
+  "Frecuencia Relativa Acumulada (Hi)" = round(freq_rel_acum, 4),
+  "Frecuencia Porcentual Acumulada (%)" = round(freq_porc_acum, 2)
+)
+
+# Agregar fila de totales
+fila_total <- data.frame(
+  "Intervalo" = "TOTAL",
+  "Límite.Inferior" = NA,
+  "Límite.Superior" = NA,
+  "Marca.de.Clase" = NA,
+  "Frecuencia.Absoluta..fi." = sum(freq_abs),
+  "Frecuencia.Relativa..hi." = round(sum(freq_rel), 4),
+  "Frecuencia.Porcentual...." = round(sum(freq_porc), 2),
+  "Frecuencia.Acumulada..Fi." = NA,
+  "Frecuencia.Relativa.Acumulada..Hi." = NA,
+  "Frecuencia.Porcentual.Acumulada...." = NA
+)
+
+tabla_completa <- rbind(tabla_completa, fila_total)
+
+# Mostrar tabla bonita en consola
+print(tabla_completa, row.names = FALSE)
+
+# Guardar tabla en formato HTML (opcional)
+if (requireNamespace("kableExtra", quietly = TRUE)) {
+  tabla_html <- kable(tabla_completa, 
+                      format = "html",
+                      align = c("l", "r", "r", "r", "r", "r", "r", "r", "r", "r"),
+                      caption = "Tabla de Frecuencias - Largo del tallo (cm)") %>%
+    kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+                  full_width = FALSE,
+                  position = "center") %>%
+    row_spec(nrow(tabla_completa), bold = TRUE, background = "#E8E8E8")
+  
+  # Guardar HTML
+  save_kable(tabla_html, "tabla_frecuencias.html")
+  cat("\n? Tabla guardada en: tabla_frecuencias.html\n")
+}
+
+# Tabla simplificada para visualización rápida
+cat("\n============================================================\n")
+cat("TABLA DE FRECUENCIAS SIMPLIFICADA\n")
+cat("============================================================\n\n")
+
+tabla_simple <- data.frame(
+  "Clase" = 1:k,
+  "Intervalo" = names(tabla_freq),
+  "fi" = freq_abs,
+  "hi" = round(as.vector(freq_rel), 4),
+  "%" = round(as.vector(freq_porc), 2),
+  "Fi" = freq_acum,
+  "%Acum" = round(freq_porc_acum, 2)
+)
+
+print(tabla_simple, row.names = FALSE)
+
+cat("\n")
+cat("Amplitud del intervalo:", round(amplitud, 2), "\n")
+
+# ============================================================
+# MEDIDAS ESTADÍSTICAS
+# ============================================================
+
+cat("\n============================================================\n")
+cat("MEDIDAS DE TENDENCIA CENTRAL\n")
+cat("============================================================\n\n")
+
+# Medidas de tendencia central
+media <- mean(df$Largo_del_tallo_cm, na.rm = TRUE)
+mediana <- median(df$Largo_del_tallo_cm, na.rm = TRUE)
+
+cat(sprintf("Media:                  %8.4f\n", media))
+cat(sprintf("Mediana:                %8.4f\n", mediana))
+
+# Moda (valor más frecuente) - mejorado
+tabla_valores <- table(df$Largo_del_tallo_cm)
+max_freq <- max(tabla_valores)
+modas <- as.numeric(names(tabla_valores)[tabla_valores == max_freq])
+cat(sprintf("Moda(s):                %s (frecuencia: %d)\n", 
+            paste(modas, collapse = ", "), max_freq))
+
+cat("\n============================================================\n")
+cat("MEDIDAS DE DISPERSIÓN\n")
+cat("============================================================\n\n")
+
+# Medidas de dispersión
+varianza <- var(df$Largo_del_tallo_cm, na.rm = TRUE)
+desv_std <- sd(df$Largo_del_tallo_cm, na.rm = TRUE)
+rango <- max(df$Largo_del_tallo_cm, na.rm = TRUE) - min(df$Largo_del_tallo_cm, na.rm = TRUE)
+
+cat(sprintf("Varianza:               %8.4f\n", varianza))
+cat(sprintf("Desviación Estándar:    %8.4f\n", desv_std))
+cat(sprintf("Rango:                  %8.4f\n", rango))
+
+# Coeficiente de variación
+cv <- (desv_std / media) * 100
+cat(sprintf("Coeficiente Variación:  %8.2f %%\n", cv))
+
+# Valores mínimo y máximo
+cat(sprintf("Mínimo:                 %8.4f\n", min(df$Largo_del_tallo_cm, na.rm = TRUE)))
+cat(sprintf("Máximo:                 %8.4f\n", max(df$Largo_del_tallo_cm, na.rm = TRUE)))
+
+# ============================================================
+# CUARTILES
+# ============================================================
+
+cat("\n============================================================\n")
+cat("CUARTILES Y RANGO INTERCUARTÍLICO\n")
+cat("============================================================\n\n")
+
+# Calcular cuartiles
+Q1 <- quantile(df$Largo_del_tallo_cm, 0.25, na.rm = TRUE)
+Q2 <- quantile(df$Largo_del_tallo_cm, 0.50, na.rm = TRUE)
+Q3 <- quantile(df$Largo_del_tallo_cm, 0.75, na.rm = TRUE)
+
+cat(sprintf("Q1 (Primer Cuartil):    %8.4f (25%% de los datos)\n", Q1))
+cat(sprintf("Q2 (Mediana):           %8.4f (50%% de los datos)\n", Q2))
+cat(sprintf("Q3 (Tercer Cuartil):    %8.4f (75%% de los datos)\n", Q3))
+
+# Rango intercuartílico
+IQR_valor <- IQR(df$Largo_del_tallo_cm, na.rm = TRUE)
+cat(sprintf("Rango Intercuartílico:  %8.4f\n", IQR_valor))
+
+# Límites para detectar valores atípicos
+limite_inferior <- Q1 - 1.5 * IQR_valor
+limite_superior <- Q3 + 1.5 * IQR_valor
+
+cat(sprintf("\nLímites para valores atípicos:\n"))
+cat(sprintf("  Límite Inferior:      %8.4f\n", limite_inferior))
+cat(sprintf("  Límite Superior:      %8.4f\n", limite_superior))
+
+# Detectar valores atípicos
+atipicos <- df$Largo_del_tallo_cm[df$Largo_del_tallo_cm < limite_inferior | 
+                                    df$Largo_del_tallo_cm > limite_superior]
+if(length(atipicos) > 0) {
+  cat(sprintf("\nValores atípicos detectados (%d):\n", length(atipicos)))
+  cat(sprintf("  %s\n", paste(round(atipicos, 2), collapse = ", ")))
+} else {
+  cat("\nNo se detectaron valores atípicos.\n")
+}
+
+# ============================================================
+# VISUALIZACIONES
+# ============================================================
+
+cat("\n============================================================\n")
+cat("GENERANDO VISUALIZACIONES...\n")
+cat("============================================================\n\n")
+
+# Histograma
+p1 <- ggplot(df, aes(x = Largo_del_tallo_cm)) +
+  geom_histogram(fill = "steelblue", color = "black", bins = 30, alpha = 0.7) +
+  geom_vline(aes(xintercept = media), color = "red", linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = mediana), color = "green", linetype = "dashed", size = 1) +
+  labs(title = "Histograma de Largo del Tallo",
+       subtitle = paste("Media (rojo):", round(media, 2), "| Mediana (verde):", round(mediana, 2)),
+       x = "Largo del tallo (cm)",
+       y = "Frecuencia") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5))
+
+print(p1)
+
+# Boxplot (diagrama de caja)
+p2 <- ggplot(df, aes(y = Largo_del_tallo_cm)) +
+  geom_boxplot(fill = "lightblue", color = "black", width = 0.5) +
+  stat_boxplot(geom = "errorbar", width = 0.3) +
+  labs(title = "Boxplot de Largo del Tallo",
+       subtitle = paste("Q1:", round(Q1, 2), "| Mediana:", round(Q2, 2), "| Q3:", round(Q3, 2)),
+       y = "Largo del tallo (cm)") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5))
+
+print(p2)
+
+# Gráfico de densidad
+p3 <- ggplot(df, aes(x = Largo_del_tallo_cm)) +
+  geom_density(fill = "steelblue", alpha = 0.5, color = "darkblue", size = 1) +
+  geom_vline(aes(xintercept = media), color = "red", linetype = "dashed", size = 1) +
+  geom_vline(aes(xintercept = mediana), color = "green", linetype = "dashed", size = 1) +
+  labs(title = "Curva de Densidad de Largo del Tallo",
+       subtitle = "Distribución de probabilidad estimada",
+       x = "Largo del tallo (cm)",
+       y = "Densidad") +
+  theme_minimal(base_size = 12) +
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"),
+        plot.subtitle = element_text(hjust = 0.5))
+
+print(p3)
+
+# Q-Q Plot (para verificar normalidad)
+par(mfrow = c(1, 1))
+qqnorm(df$Largo_del_tallo_cm, 
+       main = "Q-Q Plot - Prueba de Normalidad",
+       xlab = "Cuantiles Teóricos",
+       ylab = "Cuantiles Muestrales",
+       pch = 19,
+       col = "steelblue")
+qqline(df$Largo_del_tallo_cm, col = "red", lwd = 2)
+grid()
+
+# Gráfico combinado de 4 paneles
+par(mfrow = c(2, 2))
+
+# 1. Histograma
+hist(df$Largo_del_tallo_cm, 
+     main = "Histograma",
+     xlab = "Largo del tallo (cm)",
+     ylab = "Frecuencia",
+     col = "steelblue",
+     border = "black",
+     breaks = 20)
+abline(v = media, col = "red", lwd = 2, lty = 2)
+abline(v = mediana, col = "green", lwd = 2, lty = 2)
+legend("topright", legend = c("Media", "Mediana"), 
+       col = c("red", "green"), lty = 2, lwd = 2)
+
+# 2. Boxplot horizontal
+boxplot(df$Largo_del_tallo_cm,
+        main = "Boxplot",
+        xlab = "Largo del tallo (cm)",
+        col = "lightblue",
+        border = "black",
+        horizontal = TRUE)
+
+# 3. Q-Q Plot
+qqnorm(df$Largo_del_tallo_cm, 
+       main = "Q-Q Plot",
+       pch = 19,
+       col = "steelblue")
+qqline(df$Largo_del_tallo_cm, col = "red", lwd = 2)
+
+# 4. Gráfico de dispersión con índice
+plot(df$Largo_del_tallo_cm,
+     main = "Dispersión de Datos",
+     xlab = "Índice",
+     ylab = "Largo del tallo (cm)",
+     pch = 19,
+     col = "steelblue")
+abline(h = media, col = "red", lwd = 2, lty = 2)
+grid()
+
+par(mfrow = c(1, 1))
+
+cat("\n? Visualizaciones generadas exitosamente\n")
+
+# ============================================================
+# RESUMEN FINAL
+# ============================================================
+
+cat("\n============================================================\n")
+cat("RESUMEN ESTADÍSTICO COMPLETO\n")
+cat("============================================================\n\n")
+
+resumen <- data.frame(
+  Estadístico = c("Tamaño de muestra (n)", "Media", "Mediana", "Moda", 
+                  "Desviación Estándar", "Varianza", "Coeficiente de Variación",
+                  "Mínimo", "Q1", "Q2 (Mediana)", "Q3", "Máximo", 
+                  "Rango", "Rango Intercuartílico"),
+  Valor = c(n, round(media, 4), round(mediana, 4), paste(modas, collapse = ", "),
+            round(desv_std, 4), round(varianza, 4), paste0(round(cv, 2), "%"),
+            round(min(df$Largo_del_tallo_cm), 4),
+            round(Q1, 4), round(Q2, 4), round(Q3, 4),
+            round(max(df$Largo_del_tallo_cm), 4),
+            round(rango, 4), round(IQR_valor, 4))
+)
+
+print(resumen, row.names = FALSE)
+
+# ============================================================
+# NOTAS FINALES
+# ============================================================
+
+cat("\n============================================================\n")
+cat("NOTAS IMPORTANTES\n")
+cat("============================================================\n\n")
+
+cat("? Análisis completado exitosamente\n")
+cat("? Se analizaron", n, "observaciones\n")
+cat("? Variable: Largo del tallo (cm)\n")
+cat("? Tipo: Cuantitativa Continua\n")
+cat("\nPara instalar librerías faltantes, ejecuta:\n")
+cat("  install.packages(c('ggplot2', 'dplyr', 'knitr', 'kableExtra'))\n")
+cat("\n============================================================\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+IV. REFERENCIAS BIBLIOGRAFICAS
+
+Barrera, J. (s. f.). Fisiología y bioquímica vegetal: Nutrición mineral. Universidad Nacional de Colombia.
+https://exa.unne.edu.ar/biologia/fisiologia.vegetal/NutricionmineralUnivColombia.pdf
+
+FAO. (s. f.). El fósforo del suelo. Organización de las Naciones Unidas para la Alimentación y la Agricultura (FAO).
+https://www.fao.org/4/y4016s/y4016s03.htm
+
+Gavilánez Vélez, G. A. (2014). El fósforo: elemento indispensable para la vida vegetal. Universidad Técnica de Portoviejo.
+https://repositorio.utp.edu.co/items/308a10bb-b4cb-43cf-94de-de6650f348b0
+
+Luna, F. G. (2021). Diseño experimental y los experimentos. Editorial Díaz de Santos.
+https://www.editdiazdesantos.com/wwwdat/pdf/9788490523193.pdf
+
+Torres, Ó. G. V. (2016). Importancia de los fosfatos y fosfitos en la nutrición vegetal. Dialnet.
+https://dialnet.unirioja.es/descarga/articulo/6201359.pdf
+
+International Potash Institute (IPI). (s. f.). Principios de nutrición vegetal.
+https://www.ipipotash.org/udocs/64-principios-de-nutricion-vegetal.pdf
+
+Victoriano, M. F., et al. (s. f.). Nutrición vegetal. ResearchGate.
+https://www.researchgate.net/profile/Moises-Felipe-Victoriano/publication/378982101_010106240900207214-LIBRO_TECNICO_DIGITAL/links/65f4f9ec32321b2cff7ea714/010106240900207214-LIBRO-TECNICO-DIGITAL.pdf
+
+Porta, J., López-Acevedo, M., & Roquero, C. (2003). Edafología para la agricultura y el medio ambiente (3.ª ed.). Mundi-Prensa.
+https://es.scribd.com/document/601573424/Edafologia-Para-La-Agricultura-y-El-Medio-Ambiente-3era-Edicion-2003-J-Porta-C-M-Lopez-Acevedo-R-C-Roquero-L
+
+
+
+
+
